@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
     def index
-        @tasks = Task.all
     end
     
     def show
@@ -16,7 +15,7 @@ class TasksController < ApplicationController
         
         if @task.save
             flash[:success] = 'タスクが正常に追加されました'
-            redirect_to @task
+            redirect_to root_url
         else
             flash.now[:danger] = 'タスクが追加されませんでした'
         render :new
